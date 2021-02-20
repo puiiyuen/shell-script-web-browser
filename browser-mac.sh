@@ -12,14 +12,8 @@ IP=`echo $ip | awk '{print$4}'` # And trim the received information
 
 echo "$url has IP address: $IP" # Print the IP of the URL
 
-echo "Input the server port:(defalut 80)" #Ask to input a port number
+echo "Input the server port:" #Ask to input a port number
 read port
-
-# if the port number is null, then set the port to 80
-if [$port == ""]
-then port="80"
-else port=port
-fi
 
 echo "Input the server directory:" # Input the directory to access the file
 read directory
