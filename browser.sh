@@ -1,5 +1,5 @@
 # This program is a shell web browser
-# Run on Linux
+# Run on Linux Specical version for WebServer.java
 # Author: (Patrick) Peiyuan Chen
 
 # ***Start of the program***
@@ -22,7 +22,9 @@ echo "Input a file name for saving new file:" # Create a name for saving new fil
 read fileName
 
 # Establish TCP connection and send HTTP GET request
-echo -e "GET $directory \n\n" | nc $IP $port > $fileName # Write the received data to a file
+echo -e "GET $directory \n\n" | nc $IP $port > tempFile # Write the received data to a file
+
+more tempFile | sed '1,4d'> $fileName # Remove extra 4 line at the top of the file
 
 echo "Opening \"$fileName\" ..."
 xdg-open $fileName # Open the file with default application
